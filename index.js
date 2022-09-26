@@ -26,7 +26,7 @@ require("./config/mongodb.config")
 
 app.set('view engine','ejs');
 
-app.get('/',(req,res)=>
+app.get('https://mellifluous-marigold-9a59d5.netlify.app/',(req,res)=>
 {
     res.render('home')
 })
