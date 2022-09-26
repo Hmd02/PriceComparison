@@ -1,0 +1,200 @@
+<html>
+<head>
+  <style>
+    .navig {
+      overflow: hidden;
+      background-color: #e9e9e9;
+    }
+
+    .navig a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      margin-right: 15px;
+      width: 72.5px;
+    }
+
+    .navig a.right {
+      float: right;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      margin-right: 15px;
+      width: 72.5px;
+    }
+
+    .navig a.out {
+      float: right;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+      margin-right: 15px;
+      width:72.5px;
+    }
+
+    a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    a:active {
+      background-color: #2196F3;
+      color: white;
+    }
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: auto;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+                                    /* GENERAL */
+.price
+{
+  position: relative;
+  left: 30%;
+}
+p{
+  position: relative;
+  /* left: 50px; */
+}
+.forms
+{
+    display: inline-block;
+}
+*
+{
+    margin: 10px;
+}
+.cart_set
+{
+  position: relative;
+  left: 21%;
+}
+
+                                        /*MAIN CONTENT Of Apollo*/
+.apollo_img
+{
+max-width: 85px;
+max-height: 85px;
+position: relative;
+left: 30%;
+}
+                                   /*MAIN CONTENT Of Pharmaeasy*/
+.pharm_img
+{
+    max-height: 100px;
+    max-width: 70px;
+    position: relative;
+    left: 30%;
+}
+                                   /*MAIN CONTENT Of Practo*/
+.practo_img
+{
+    max-height: 100px;
+    max-width: 70px;
+    position: relative;
+    left: 30%;
+}
+                                   /*MAIN CONTENT Of Netmeds*/
+.netmeds_img
+{
+    /* max-height: 100px;
+    max-width: 70px; */
+    position: relative;
+    left: 30%;
+}
+</style>
+  <title>Results</title>
+</head>
+<body>
+  <div class="navig" id="nav">
+    <a href="/">Home</a>
+    <a href="/order">Order</a>
+    <a href="/contact">Contact</a>
+    <a class="out" href="/logoutuser">Logout</a>
+    <a href="/login" class="right">Login</a>
+    <a href="#profile" class="right">Cart</a>
+  </div>
+  <div>
+  <% for (var i=0;i<apollo_names.length;i++) {%>
+  <form action="/cart" method="post" class="forms">
+    <div class="card">
+      <p>Apollo</p> 
+     <img src="<%=apollo_images[i]%>" alt="Avatar" class="apollo_img">
+        <div class="container">
+          <h4><b><input type="hidden" name="name" value="<%=apollo_names[i]%>"><%=apollo_names[i]%></input></b></h4> 
+          <h4><b class="price">₹<%=apollo_prices[i]%></b></h4>
+          <!-- <p>Apollo</p>  -->
+          <button type="submit" value="ADD TO CART" class="cart_set">ADD TO CART</button>
+        </div>
+      </div>
+  </form>
+    <%}%>
+  </div>
+  <div>
+    <% for (var i=0;i<pharm_names.length;i++) {%>
+        <form action="/cart" method="post" class="forms">
+          <div class="card">
+           <p>PharmEasy</p> 
+           <img src="<%=pharm_images[i]%>" alt="Avatar" class="pharm_img">
+              <div class="container">
+                <h4><b><%=pharm_names[i]%></b></h4> 
+                <h4><b class="price">₹<%=pharm_prices[i]%></b></h4> 
+                <!-- <p>PharmEasy</p>  -->
+                <button type="submit" value="ADD TO CART" class="cart_set">ADD TO CART</button>
+              </div>
+            </div>
+        </form>
+          <%}%>
+    </div>
+    <div>
+    <% for (var i=0;i<practo_names.length;i++) {%>
+        <form action="/cart" method="post" class="forms">
+            <div class="card">
+              <p>Practo</p> 
+              <img src="<%=practo_images[i]%>" alt="Avatar" class="practo_img">
+                <div class="container">
+                  <h4><b><%=practo_names[i]%></b></h4> 
+                  <h4><b class="price">₹<%=practo_prices[i]%></b></h4> 
+                  <!-- <p>Practo</p>  -->
+                  <button type="submit" value="ADD TO CART" class="cart_set">ADD TO CART</button>
+                </div>
+            </div>
+        </form>
+    <%}%>
+    </div>
+    <div>
+    <% for (var i=0;i<netmeds_names.length;i++) {%>
+      <form action="/cart" method="post" class="forms">
+          <div class="card">
+            <p>Netmeds</p> 
+            <img src="<%=netmeds_images[i]%>" alt="Avatar" class="netmeds_img">
+              <div class="container">
+                <h4><b><%=netmeds_names[i]%></b></h4>
+                <h4><b class="price">₹<%=netmeds_prices[i]%></b></h4> 
+                <button type="submit" value="ADD TO CART" class="cart_set">ADD TO CART</button>
+                <!-- <p>Netmeds</p>  -->
+              </div>
+          </div>
+      </form>
+  <%}%>
+    </div>
+</body>
+</html>
