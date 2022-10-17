@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 //Set up default mongoose connection
 
-var mongoDB = 'mongodb://localhost:27017/CarefirstDb';
+var mongoDB = 'mongodb://localhost:27017/softengg';
 mongoose.connect(mongoDB);
 
 //Get the default connection

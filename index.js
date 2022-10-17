@@ -21,17 +21,25 @@ const cartRoute=require('./routes/cart.route')
 
 require("./config/mongodb.config")
 
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 
+const myLogger = function (req, res, next) {
+    console.log('LOGGED')
+    next()
+  }
+
+  app.use(myLogger);
 
 app.set('view engine','ejs');
 
 app.get('/',(req,res)=>
 {
+    // console.log(req)
     res.render('home')
 })
 
-app.use(bodyParser.urlencoded({ extended: true })); 
+// app.use(bodyParser.urlencoded({ extended: true })); 
 
 const store = new MongoDBStore({
     uri: 'mongodb://localhost:27017/test',
@@ -62,6 +70,7 @@ app.use('/cart',cartRoute)
 
 app.listen(port,()=>
 {
+    console.log(app._router.stack)
    console.log("Server listening to port "+port)
 })
 
